@@ -1,5 +1,6 @@
 package test.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.Entity;
@@ -11,6 +12,7 @@ import javax.persistence.Id;
  * User实体类，和数据库的字段是相对应的  依赖添加完成要点更新，就是那个圆圈，或者刚才左下角的
 * */
 @Entity
+@JsonIgnoreProperties(value = { "hibernateLazyInitializer"})
 public class User {
     /**
      * create table user (id bigint not null auto_increment, age integer not null, name varchar(255),
@@ -88,4 +90,4 @@ public class User {
     }
 }
 
-
+//我的谷歌 老是  网页报错 加载不出来  如果是String  就不影响对吧  刚如果是我写 我也不会写equals
