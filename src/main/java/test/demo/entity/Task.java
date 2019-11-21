@@ -1,5 +1,6 @@
 package test.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.Entity;
@@ -9,6 +10,7 @@ import javax.persistence.Id;
 import java.util.Date;
 
 @Entity
+@JsonIgnoreProperties(value = { "hibernateLazyInitializer"})
 public class Task {
 
     @Id

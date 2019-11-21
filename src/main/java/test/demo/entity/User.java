@@ -3,10 +3,7 @@ package test.demo.entity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * User实体类，和数据库的字段是相对应的  依赖添加完成要点更新，就是那个圆圈，或者刚才左下角的
@@ -36,6 +33,9 @@ public class User {
     private boolean sex;
     //alter table user add column nick_name varchar(255)
     private String nickName;
+    @OneToOne
+    private Task task;
+
 
     public User(){
 
@@ -87,6 +87,14 @@ public class User {
 
     public void setNickName(String nickName) {
         this.nickName = nickName;
+    }
+
+    public Task getTask() {
+        return task;
+    }
+
+    public void setTask(Task task) {
+        this.task = task;
     }
 }
 
